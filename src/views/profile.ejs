@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head') %>
+
+    <body>
+        <%- include('./partials/header') %>
+        <%- include('./partials/adminNavBar') %> 
+            <main class="container p-4">
+
+                <div class="row">
+                    <h3 class="text-center">Mi Perfil</h3>
+                    <div class=" trainingShop-shadow  card mx-auto p-3 mt-3 mb-3 col-md-8">
+
+                       
+
+
+
+                        <div class="card-body">
+                            <form id="formUserProfile" class="row g-3"action="/users/update/<%= user.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <label for="avatar" ><img class=" trainingShop-shadow mx-auto d-block rounded-circle" width="150px"
+                                    src="/images/profilesImage/<%= user.avatar %> " style="cursor: pointer;" alt="" id="imagePrev"></label>
+                                    <div class="mb-3" style="text-align-last: center; font-weight: bold;">
+                                        <label for="avatar" class="form-label" style="text-decoration: underline;">Subir Imagen de Perfíl</label>
+                                        <p id="avatarMsg"></p>
+                                    </div>
+                            
+                                <div class="col-md-12">
+                                    <label class="register-main-label">Nombre:</label>
+                                    <input class="register-main-input form-control" type="text" name="name" id="name" placeholder="ej: María" value="<%= user.name %>">
+                                    <p class="form__error__msg" id="nameMsg"><%= locals.errors && errors.name ? errors.name.msg : null%> </p>
+                                </div>
+                                <div class="col-md-12">
+                                  <label class="register-main-label">Apellido:</label>
+                                  <input class="register-main-input form-control" id="lastName" type="text" name="lastName" placeholder="ej: Perez" value="<%= user.lastName %>">
+                                  <p class="form__error__msg" id="lastNameMsg"><%= locals.errors && errors.lastName ? errors.lastName.msg : null%> </p>
+                              </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail4" class="form-label">Email</label>
+                                    <input type="email" name="email" class=" input-trainingShop form-control" id="email" value="<%= user.email %>">
+                                    <p class=" mt-1 form__error__msg" id="emailMsg"><%= locals.errors && errors.email ? errors.email.msg : null%> </p>
+                                </div>
+                    
+                                <div class="col-4">
+                                    <label for="phone" class="form-label">Numero celular</label>
+                                    <input name="phone" type="tel" class=" input-trainingShop form-control" id="phone" value="<%= user.phone %>" >
+                                    <p class="form__error__msg" id="phoneMsg"><%= locals.errors && errors.phone ? errors.phone.msg : null%> </p>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <label for="city" class="form-label">Ciudad</label>
+                                    <select id="city" name="city" class=" input-trainingShop form-select">
+                                        <option selected>Seleccionar</option>
+                                        <option>CABA</option>
+                                        <option>San Miguel</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="ccp" class="form-label">CCP</label>
+                                    <input type="text" name="ccp" class="input-trainingShop form-control" id="ccp">
+                                </div>
+ -->
+                                <!-- <h6 class="text-center">intereses</h6>
+                                <div
+                                    class=" checkbox-traingShop container d-md-flex justify-content-around         align-items-center flex-wrap">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="proteinas"
+                                            id="proteinas">
+                                        <label class="form-check-label" for="proteinas">
+                                            proteinas
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Aminoácidos"
+                                            id="Aminoácidos">
+                                        <label class="form-check-label" for="Aminoácidos">
+                                            Aminoácidos
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Multivitamínicos"
+                                            id="Multivitamínicos">
+                                        <label class="form-check-label" for="Multivitamínicos">
+                                            Multivitamínicos
+                                        </label>
+                                    </div>                                   
+                                </div> -->    
+                                <div class="mb-3" style="text-align-last: center; font-weight: bold;">
+                                    <!-- <label for="avatar" class="form-label" style="text-decoration: underline;">Subir Imagen de Perfíl</label> -->
+                                    <input class="form-control" style="border: solid 3px #bbe1fa;
+                                    " type="file" name="avatar" id="avatar" hidden>
+                                </div>   
+
+                                <div class="addProduct-div-button">
+                                    <button type="submit" id="submit" >Editar</button> 
+                                </div>
+                                 <!-- <div class="col-12 d-flex justify-content-center justify-content-sm-end ">
+                                     <a href="/" class="btn-TraininShop">Volver</a>
+                                    </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('./partials/footer') %>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> 
+            <script src="/js/userProfile.js"></script>
+    </body>
+
+</html>
