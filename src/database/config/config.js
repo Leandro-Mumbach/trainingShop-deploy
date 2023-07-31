@@ -9,6 +9,7 @@ module.exports = {
     port: process.env.DB_PORT,
     dialect: "mysql"
   },
+  //de aca para abajo estaba coomentado
   test: {
     username: "root",
     password: null,
