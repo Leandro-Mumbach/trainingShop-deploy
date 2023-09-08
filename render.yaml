@@ -1,0 +1,9 @@
+version: 1
+buildCommand:
+  - npm install
+  - npm run build
+startCommand: npm start
+database:
+  - type: mysql
+    name: trainingshopdb
+    password: root
